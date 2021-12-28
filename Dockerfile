@@ -1,10 +1,6 @@
-From ubuntu
-
-RUN apt-get update && \
-    apt install -y apache2 && \
-    echo "image publish succefully with verison1" >> /var/www/html/index.html
-    
-CMD ["apachectl", "-D", "FOREGROUND"]
-    
-
-
+FROM ubuntu 
+RUN apt-get update 
+RUN apt-get install –y apache2 
+RUN apt-get install –y apache2-utils 
+RUN apt-get clean 
+EXPOSE 80 CMD [“apache2ctl”, “-D”, “FOREGROUND”]
